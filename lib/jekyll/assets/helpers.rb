@@ -16,6 +16,7 @@ module Jekyll
 
         if asset
           manifest.add(asset)
+          @dependencies.merge(asset.metadata[:dependencies])
           parent.prefix_path(
             parent.digest?? asset.digest_path : asset.logical_path
           )
